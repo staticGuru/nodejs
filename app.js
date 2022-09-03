@@ -1,4 +1,5 @@
 const http=require('http');
 http.createServer((req,res) => {
      console.log("request sections",req);
-}).listen(2022);
+     process.exit();
+}).listen(3000);
