@@ -26,7 +26,17 @@ const server = http.createServer((req, res) => {
           return res.end();
      }
      if(req.url =='/create-user'){
-          console.log("requeskljlj",res)
+          const body=[];
+          req.on('data',(chunk) =>{
+               body.push(chunk);
+          });
+          req.on('end',()=>{
+               const parsedBody= Buffer.concat(body).toString();
+               console.log("parsedbody",parsedBody.split('=')[1])
+          });
+          res.statusCode=302;
+          res.setHeader('Location','/users');
+          return res.end();
      }
 });
 
