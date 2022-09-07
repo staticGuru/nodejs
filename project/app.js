@@ -1,16 +1,22 @@
 // const http = require("http");
 
 const express = require("express");
+var bodyParser = require('body-parser')
 const app = express();
-
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/',(req, res, next) => {
   console.log("middleware called");
   // res.send("<h1>Response from the / page</h1>")
   next();
 });
+app.use('/add-product',(req, res, next)=>{
+  res.write(
+    '<body><form action="/users" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>'
+  );
+});
 app.use('/users',(req, res, next) => {
-  console.log("another middleware called");
-  res.send("<h1>Response from users middleware</h1>")
+  console.log("another middleware called",req.body);
+res.redirect("/user")
 });
 app.use('/user',(req, res, next) => {
   console.log("another middleware called");
