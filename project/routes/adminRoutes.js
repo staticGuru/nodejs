@@ -8,7 +8,7 @@ router.use('/add-product',(req, res, next)=>{
 });
 router.post('/products',(req, res, next) => {
      console.log("another middleware called",req.body);
-//  res.redirect("/user")
+ res.redirect("/user")
    next();
    });
 
