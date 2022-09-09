@@ -1,8 +1,9 @@
 const express = require('express');
+const path = require('path');
 const router =express.Router();
 
 router.get('/user',(req, res, next) => {
      console.log("another middleware called");
-     res.send("<h1>Response from user middleware</h1>")
+     res.sendFile(path.join(__dirname,'../','views','shop.html'))
    });
 module.exports =router;
