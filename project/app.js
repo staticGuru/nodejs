@@ -11,6 +11,9 @@ app.use('/',(req, res, next) => {
   // res.send("<h1>Response from the / page</h1>")
   next();
 });
+app.set('view engine','pug');
+app.set('views','views');
+
 app.use(shopRoutes)
 app.use('/admin',adminRoutes);
 

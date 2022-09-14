@@ -4,7 +4,8 @@ const router =express.Router();
 const rootDir = require('../util/path')
 
 router.get('/user',(req, res, next) => {
-     console.log("another middleware called");
-     res.sendFile(path.join(rootDir,'views','shop.html'))
+  res.render(shop);
+    //  console.log("another middleware called");
+    //  res.sendFile(path.join(rootDir,'views','shop.html'))
    });
 module.exports =router;
